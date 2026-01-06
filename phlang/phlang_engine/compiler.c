@@ -52,7 +52,7 @@ static void emit_statement(FILE *out, VarNode **vars, ASTNode *node) {
                 // string literal includes quotes
                 fprintf(out, "printf(\"%s\\n\");\n", node->left->text + 1); // crude: drop leading quote
             } else {
-                fprintf(out, "printf(\"%g\\n\", (double) (");
+                fprintf(out, "printf(\"%%g\\n\", (double) (");
                 emit_expr(out, node->left);
                 fprintf(out, "));\n");
             }
